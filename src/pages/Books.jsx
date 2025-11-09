@@ -36,7 +36,7 @@ export default function Books() {
       title: "The Kane Chronicles: The Throne of Fire",
       genre: "Egyptian Mythology · Fantasy · Adventure",
       cover:
-        "https://p19-images-sign-sg.tokopedia-static.net/tos-alisg-i-aphluv4xwc-sg/img/hDjmkQ/2020/10/23/236a51d5-df70-4b51-aca5-d7ad3e6dc712.jpg~tplv-aphluv4xwc-white-pad-v1:1600:1600.jpeg?lk3s=0ccea506&x-expires=1762678458&x-signature=Op5YeFUGpVPv0c0v9CJov9BQpbQ%3D&x-signature-webp=soT%2BJ%2BOYWEqWz6K1rjAZnMWVX2U%3D",
+        "https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/items/The_Throne_Of_Fire.jpg",
       synopsis:
         "Carter dan Sadie harus menemukan buku mantra kuno untuk membangkitkan Ra, dewa matahari, sebelum Apophis bangkit dari penjara kekacauan.",
       link: "https://www.gramedia.com/products/the-throne-of-fire",
