@@ -1,0 +1,948 @@
+/* === RESET DASAR === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === RESET DASAR & STRUKTUR UTAMA === */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* === NAVBAR === */
+nav {
+  background: rgba(26, 26, 26, 0.9);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav .nav-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0.8rem 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 🏛️ Brand kiri */
+nav .brand {
+  font-family: "Cinzel Decorative", serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #ffcc33;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ⚡ Menu kanan */
+nav .menu {
+  display: flex;
+  gap: 1rem;
+}
+
+nav .menu button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-family: "Cinzel", serif;
+  color: #f5f5f5;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+nav .menu button:hover {
+  background-color: rgba(255, 140, 0, 0.2);
+}
+
+nav .menu button.active {
+  background-color: #ff8c00;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(255, 140, 0, 0.4);
+}
+
+nav .brand {
+  text-shadow: 0 0 10px rgba(255, 200, 50, 0.5),
+               0 0 20px rgba(255, 180, 0, 0.4);
+}
+
+
+/* === KONTEN === */
+.page {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  animation: pageFadeIn 0.5s ease-out forwards;
+}
+
+/* === CARD === */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.card h1 {
+  text-align: center;
+  color: #0ea5a4;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.card p {
+  color: #334155;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* === BOOK GALLERY === */
+.book-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-top: 1.2rem;
+  justify-items: center;
+}
+
+.book-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  width: 150px;
+}
+
+.book-card {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(255, 140, 0, 0.4);
+}
+
+.book-description {
+  background: #fffaf2;
+  border-top: 1px solid #e2b36f;
+  padding: 0.8rem 0.9rem;
+  font-size: 0.9rem;
+  color: #333;
+  line-height: 1.5;
+  border-radius: 0 0 8px 8px;
+  animation: fadeInDesc 0.4s ease-in-out;
+  font-family: "Merriweather", serif;
+}
+
+@keyframes fadeInDesc {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.book-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.book-cover {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.book-info {
+  padding: 0.6rem;
+}
+
+.book-title {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #2d2d2d;
+}
+
+.book-genre {
+  font-size: 0.75rem;
+  color: #8b7355;
+  margin-top: 0.3rem;
+}
+
+/* === FOOTER === */
+footer {
+  background-color: #1a1a1a;
+  color: #ffcc33;
+  font-size: 0.9rem;
+  padding: 1rem 0;
+  border-top: 2px solid #ffb347;
+  text-align: center;
+  margin-top: 2rem; /* beri jarak antara konten dan footer */
+}
+
+
+/* === ANIMASI HALAMAN === */
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === INTRO / SPLASH SCREEN DEFAULT === */
+.intro-screen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(-45deg, #0ea5a4, #14b8a6, #38bdf8, #3b82f6);
+  background-size: 300% 300%;
+  color: white;
+  z-index: 9999;
+  animation: gradientMove 6s ease infinite, introFadeIn 0.8s ease-in-out;
+  overflow: hidden;
+}
+
+.intro-screen.fade-out {
+  animation: introFadeOut 0.8s ease-in-out forwards;
+}
+
+.intro-content {
+  text-align: center;
+  animation: introPop 0.8s ease-in-out;
+}
+
+.logo {
+  font-size: 3rem;
+  animation: pulseLogo 1.6s ease-in-out infinite;
+}
+
+.intro-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 1rem;
+  letter-spacing: 1px;
+}
+
+.intro-sub {
+  opacity: 0.9;
+  font-size: 0.95rem;
+  margin-top: 0.4rem;
+}
+
+/* === ANIMASI === */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes introFadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes introFadeOut {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(1.05); }
+}
+
+@keyframes introPop {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes pulseLogo {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+/* ===================================================== */
+/* === CAMP HALF-BLOOD THEME (Override Bagian Akhir) === */
+/* ===================================================== */
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(160deg, #ffb347 0%, #ffcc33 30%, #f8c471 70%, #f0a500 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll; /* GANTI dari fixed -> scroll */
+  color: #1a1a1a;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 14px;
+  padding: 2rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  border: 2px solid rgba(255, 179, 71, 0.3);
+}
+
+.card h1 {
+  color: #1a1a1a;
+  text-align: center;
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.card p {
+  text-align: center;
+  color: #2f2f2f;
+  margin-bottom: 1.2rem;
+  font-style: italic;
+}
+
+.book-card {
+  background: #fff9f2;
+  border: 1px solid #e2b36f;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(255, 140, 0, 0.6);
+  border-color: #ff8c00;
+}
+
+.book-cover {
+  border-bottom: 1px solid #e2b36f;
+}
+
+nav {
+  background: rgba(26, 26, 26, 0.9);
+  color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+nav .brand {
+  color: #ffcc33;
+  font-family: "Cinzel Decorative", serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+nav .menu button {
+  color: #f5f5f5;
+}
+
+nav .menu button.active {
+  background-color: #ff8c00;
+  color: #fff;
+}
+
+footer {
+  background: #1a1a1a;
+  color: #ffcc33;
+  font-size: 0.9rem;
+  padding: 1rem 0;
+  border-top: 2px solid #ffb347;
+  text-align: center;
+}
+
+/* === TOMBOL (BTN) - CAMP HALF-BLOOD STYLE === */
+.btn {
+  background-color: #ff8c00;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: "Merriweather", serif;
+  box-shadow: 0 4px 10px rgba(255, 140, 0, 0.3);
+  transition: all 0.25s ease;
+  display: block;
+  margin: 1.2rem auto 0 auto;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: #ffa733;
+  box-shadow: 0 6px 14px rgba(255, 140, 0, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 3px 8px rgba(255, 140, 0, 0.4);
+}
+
+/* === INTRO SPLASH - CAMP HALF-BLOOD THEME === */
+.camp-halfblood-intro {
+  background: linear-gradient(-45deg, #ffb347, #ffcc33, #d97706, #b45309);
+  background-size: 300% 300%;
+  animation: gradientMove 8s ease infinite, introFadeIn 0.8s ease-in-out;
+  color: #1a1a1a;
+  font-family: "Cinzel", serif;
+}
+
+.camp-halfblood-intro.fade-out {
+  animation: introFadeOut 0.8s ease-in-out forwards;
+}
+
+.intro-logo {
+  font-size: 4rem;
+  color: #ffef9f;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.8),
+               0 0 20px rgba(255, 165, 0, 0.5),
+               0 0 40px rgba(255, 165, 0, 0.3);
+  animation: lightningGlow 1.8s infinite ease-in-out;
+}
+
+.intro-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.6);
+  margin-top: 1rem;
+}
+
+.intro-sub {
+  opacity: 0.9;
+  font-size: 1rem;
+  margin-top: 0.4rem;
+  font-style: italic;
+  color: #3b2f2f;
+}
+
+/* Efek petir menyala */
+@keyframes lightningGlow {
+  0%, 100% {
+    text-shadow: 0 0 12px rgba(255, 255, 0, 0.8),
+                 0 0 24px rgba(255, 215, 0, 0.5);
+    transform: scale(1);
+  }
+  50% {
+    text-shadow: 0 0 25px rgba(255, 255, 100, 1),
+                 0 0 50px rgba(255, 255, 150, 0.8);
+    transform: scale(1.15);
+  }
+}
+
+/* === PROFILE SECTION === */
+.profile-card {
+  background: #fffaf0;
+  border-radius: 16px;
+  padding: 2.5rem 3rem;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border: 2px solid rgba(255, 179, 71, 0.4);
+  max-width: 600px;
+  width: 100%;
+  animation: pageFadeIn 0.6s ease-out;
+}
+
+
+.profile-card h2 {
+  font-family: "Cinzel", serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+.profile-card p {
+  font-family: "Merriweather", serif;
+  font-size: 1rem;
+  color: #333;
+  margin: 0.4rem 0;
+}
+
+.profile-card strong {
+  color: #ff8c00;
+  font-weight: 700;
+}
+
+/* === Background section === */
+.profile-page {
+  background: linear-gradient(to bottom right, #ffb347, #ffcc33);
+  min-height: 80vh;
+  padding-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.profile-title {
+  font-family: "Cinzel Decorative", serif;
+  font-size: 2rem;
+  text-align: center;
+  color: #1a1a1a;
+  text-shadow: 0 0 10px rgba(255, 200, 50, 0.5);
+  margin-top: 3rem;
+}
+
+.profile-page {
+  flex: 1;
+  min-height: calc(100vh - 120px); /* Pastikan tetap menutupi layar penuh */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent; /* biar pakai gradasi dari body */
+  padding: 4rem 1rem; /* tambahkan sedikit jarak dari bawah */
+  box-sizing: border-box;
+}
+
+/* ===================================================== */
+/* === HOME PAGE - ROOKREAD THEME === */
+/* ===================================================== */
+
+.highlight {
+  color: #ff8c00;
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(255, 200, 100, 0.4);
+}
+
+.intro-text {
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.8;
+  margin: 1rem 0 2rem 0;
+  color: #2d2d2d;
+  font-family: "Merriweather", serif;
+}
+
+.quote-box {
+  background: #fffaf2;
+  border-left: 4px solid #ffb347;
+  padding: 1rem 1.2rem;
+  margin: 1rem auto 2rem auto;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(255, 140, 0, 0.1);
+  animation: fadeInQuote 1s ease-in-out;
+}
+
+.quote {
+  font-style: italic;
+  color: #2f2f2f;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.author {
+  text-align: right;
+  font-weight: 600;
+  color: #a46b00;
+  margin-top: 0.5rem;
+  font-family: "Cinzel", serif;
+}
+
+@keyframes fadeInQuote {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === POPUP / MODAL BOOK DETAIL (Enhanced Rookread Style) === */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px); /* ✨ efek blur lembut */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  animation: fadeInPopup 0.35s ease-in-out;
+}
+
+.popup-card {
+  background: rgba(255, 250, 240, 0.97);
+  border-radius: 18px;
+  padding: 2.5rem 2.2rem 2.8rem;
+  max-width: 450px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+  border: 2px solid rgba(255, 179, 71, 0.5);
+  animation: popIn 0.3s ease-out;
+  transform: translateY(-15px);
+}
+
+.popup-cover {
+  width: 200px;
+  height: 290px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+  border: 3px solid rgba(255, 200, 100, 0.6);
+}
+
+.popup-card h2 {
+  font-family: "Cinzel", serif;
+  font-size: 1.4rem;
+  margin-bottom: 0.4rem;
+  color: #1a1a1a;
+  line-height: 1.4;
+}
+
+.popup-card .genre {
+  color: #ff8c00;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  font-size: 0.95rem;
+}
+
+.popup-card .description {
+  font-family: "Merriweather", serif;
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.7;
+  text-align: justify;
+  margin: 0 auto;
+  max-width: 95%;
+}
+
+/* Tombol Close */
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #b93b3b;
+  transition: all 0.25s ease;
+}
+
+.close-btn:hover {
+  color: #ff5c33;
+  transform: scale(1.2) rotate(5deg);
+}
+
+/* Animasi popup */
+@keyframes fadeInPopup {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(8px);
+  }
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.92) translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* === BACKGROUND ANIMASI BUKU MELAYANG === */
+.home-container {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floating-books {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.book-icon {
+  position: absolute;
+  font-size: 2.5rem;
+  color: rgba(255, 255, 255, 0.35);
+  opacity: 0.8;
+  animation: floatBook 10s ease-in-out infinite;
+}
+
+/* Acak posisi & ukuran agar bervariasi */
+.book-1 { top: 10%; left: 15%; animation-delay: 0s; font-size: 2.2rem; }
+.book-2 { top: 25%; left: 75%; animation-delay: 2s; font-size: 2.8rem; }
+.book-3 { top: 60%; left: 5%; animation-delay: 4s; font-size: 3rem; }
+.book-4 { top: 80%; left: 40%; animation-delay: 6s; font-size: 2.4rem; }
+.book-5 { top: 45%; left: 60%; animation-delay: 8s; font-size: 3.2rem; }
+.book-6 { top: 15%; left: 50%; animation-delay: 3s; font-size: 2.5rem; }
+.book-7 { top: 70%; left: 80%; animation-delay: 1s; font-size: 3.1rem; }
+.book-8 { top: 30%; left: 35%; animation-delay: 5s; font-size: 2.3rem; }
+.book-9 { top: 85%; left: 20%; animation-delay: 7s; font-size: 2.6rem; }
+.book-10 { top: 55%; left: 85%; animation-delay: 9s; font-size: 2.9rem; }
+
+/* Animasi buku melayang */
+@keyframes floatBook {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.5;
+  }
+  25% {
+    transform: translateY(-20px) rotate(3deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(0) rotate(-2deg);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translateY(15px) rotate(2deg);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.5;
+  }
+}
+
+/* Pastikan konten utama di atas animasi */
+.home-card {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(255, 179, 71, 0.3);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+
+.brand-text {
+  color: #ff8c00;
+  font-family: "Cinzel Decorative", serif;
+}
+
+/* === ANIMASI BUKU MELAYANG UNTUK HALAMAN BOOKS === */
+.books-container {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.floating-books {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.book-icon {
+  position: absolute;
+  font-size: 2.8rem;
+  color: rgba(255, 255, 255, 0.25);
+  opacity: 0.9;
+  animation: floatBook 12s ease-in-out infinite;
+}
+
+/* Posisi acak untuk efek alami */
+.book-1 { top: 10%; left: 10%; animation-delay: 0s; font-size: 2.5rem; }
+.book-2 { top: 25%; left: 70%; animation-delay: 2s; font-size: 3rem; }
+.book-3 { top: 50%; left: 20%; animation-delay: 4s; font-size: 2.7rem; }
+.book-4 { top: 65%; left: 80%; animation-delay: 6s; font-size: 3.1rem; }
+.book-5 { top: 85%; left: 40%; animation-delay: 8s; font-size: 2.6rem; }
+.book-6 { top: 40%; left: 50%; animation-delay: 10s; font-size: 2.9rem; }
+.book-7 { top: 15%; left: 85%; animation-delay: 3s; font-size: 3.3rem; }
+.book-8 { top: 75%; left: 5%; animation-delay: 5s; font-size: 2.4rem; }
+.book-9 { top: 55%; left: 65%; animation-delay: 7s; font-size: 3.2rem; }
+.book-10 { top: 90%; left: 75%; animation-delay: 9s; font-size: 2.8rem; }
+.book-11 { top: 35%; left: 30%; animation-delay: 11s; font-size: 3rem; }
+.book-12 { top: 5%; left: 60%; animation-delay: 12s; font-size: 2.5rem; }
+
+@keyframes floatBook {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.5;
+  }
+  25% {
+    transform: translateY(-20px) rotate(3deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(10px) rotate(-2deg);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translateY(-15px) rotate(2deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.5;
+  }
+}
+
+/* Supaya konten tetap di atas animasi */
+.page {
+  position: relative;
+  z-index: 2;
+}
+
+/* === POPUP DETAIL BUKU (VERSI FINAL RAPIH DAN ESTETIK) === */
+.book-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeInPopup 0.3s ease-in-out;
+  padding: 1rem;
+}
+
+.book-popup {
+  background: linear-gradient(160deg, #fffaf0, #fff7e6);
+  border-radius: 16px;
+  padding: 2rem 2.5rem 2.5rem 2.5rem;
+  max-width: 460px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+  position: relative;
+  animation: popupZoom 0.35s ease-out;
+  border: 2px solid rgba(255, 179, 71, 0.4);
+}
+
+.popup-cover {
+  width: 170px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.35);
+  margin-bottom: 1.2rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.popup-cover:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 22px rgba(255, 140, 0, 0.45);
+}
+
+/* === TITLE & TEXT === */
+.book-popup h2 {
+  font-family: "Cinzel", serif;
+  color: #1a1a1a;
+  margin-top: 0.4rem;
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.popup-genre {
+  font-style: italic;
+  color: #8b7355;
+  font-size: 0.95rem;
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+.popup-synopsis {
+  font-size: 0.95rem;
+  color: #2f2f2f;
+  line-height: 1.6;
+  margin-bottom: 1.8rem;
+  text-align: justify;
+  padding: 0 0.2rem;
+}
+
+/* === BUTTONS === */
+.popup-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.read-btn {
+  background-color: #ff8c00;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  padding: 0.75rem 1.4rem;
+  border-radius: 10px;
+  font-weight: 600;
+  width: 80%;
+  box-shadow: 0 5px 12px rgba(255, 140, 0, 0.3);
+  transition: all 0.25s ease;
+}
+
+.read-btn:hover {
+  background-color: #ffa733;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(255, 140, 0, 0.45);
+}
+
+.close-btn {
+  background: transparent;
+  color: #b22222;
+  border: none;
+  font-size: 1.6rem;
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.close-btn:hover {
+  color: #ff4500;
+  transform: scale(1.1);
+}
+
+/* === ANIMASI === */
+@keyframes fadeInPopup {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popupZoom {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
