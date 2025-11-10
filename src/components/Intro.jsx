@@ -21,10 +21,10 @@ export default function Intro({ onFinish }) {
         <div className="intro-logo">⚡</div>
 
         {/* Judul utama */}
-        <h1 className="intro-title">Camp Rookread Archives</h1>
+        <h1 className="intro-title">Rookread Archives</h1>
 
         {/* Subjudul */}
-        <p className="intro-sub">A Collection of Heroes, Gods, and Stories</p>
+        <p className="intro-sub">A Collection of Books</p>
       </div>
     </div>
   );
